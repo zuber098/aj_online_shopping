@@ -21,7 +21,16 @@ class _brandState extends State<brand> {
   @override
   Widget build(BuildContext context) {
     /// Component appbar
-    var _appbar = AppBar(
+    
+    var data = EasyLocalizationProvider.of(context).data;
+
+    return EasyLocalizationProvider(
+      data: data,
+      child: Padding(
+        padding: const EdgeInsets.only(top: 8.0),
+        child: Scaffold(
+          /// Calling variable appbar
+          appBar: AppBar(
       backgroundColor: Color(0xFFFFFFFF),
       elevation: 0.0,
       title: Padding(
@@ -52,17 +61,8 @@ class _brandState extends State<brand> {
           ),
         )
       ],
-    );
-
-    var data = EasyLocalizationProvider.of(context).data;
-
-    return EasyLocalizationProvider(
-      data: data,
-      child: Padding(
-        padding: const EdgeInsets.only(top: 8.0),
-        child: Scaffold(
-          /// Calling variable appbar
-          appBar: _appbar,
+    )
+,
           body: _imageLoaded(context),
         ),
       ),
